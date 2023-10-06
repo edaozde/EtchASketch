@@ -21,15 +21,50 @@ document.addEventListener("DOMContentLoaded", () => {
   createGrid(16);
 });
 
-// faire une fonction mouseover
-// on recup les grid, ensuite pour chaque grid on ajoute un evet listener mousevent
+function clearGrid(event) {
+  const cells = document.querySelectorAll(".cell");
+  cells.forEach((cell) => {
+    cell.style.backgroundColor = "";
+  });
+}
 
 grid.addEventListener("mouseover", function (event) {
   const target = event.target;
   if (target.classList.contains("cell")) {
-    target.style.backgroundColor = "red";
+    const color = document.getElementById("colorSelect").value;
+    target.style.backgroundColor = color;
   }
 });
-// const changeGridColor = () => {
 
+// //télécharger son dessin
+
+// function downloadDrawing() {
+//   const canvas = document.createElement("canvas");
+//   const context = canvas.getContext("2d");
+//   const gridElements = [...document.querySelectorAll(".cell")];
+
+//   const gridSize = 16;
+//   const cellSize = 30; // Adjust this based on your grid size
+
+//   // Set the canvas size to match the grid dimensions
+//   canvas.width = gridSize * cellSize;
+//   canvas.height = gridSize * cellSize;
+
+//   // Draw each grid element onto the canvas
+//   gridElements.forEach((element, index) => {
+//     const row = Math.floor(index / gridSize);
+//     const col = index % gridSize;
+//     const color = element.style.backgroundColor;
+//     context.fillStyle = color;
+//     context.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+//   });
+
+//   // Generate data URL for the canvas content
+//   const dataURL = canvas.toDataURL("image/png");
+
+//   // Create a download link
+//   const link = document.createElement("a");
+//   link.href = dataURL;
+//   link.download = "drawing.png";
+//   link.click();
 // }

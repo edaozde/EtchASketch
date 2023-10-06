@@ -10,20 +10,18 @@
 
 <body>
     <h1>Etch A Sketch</h1>
-
-    <div class="header">
-        <h2>Select the size</h2>
-        <button id="popup">Select</button>
+    <div class="container">
+        <div class="grid"></div>
     </div>
-    <div class="grid"></div>
 
     <div class="footer">
-        <button>Black</button>
-        <button>Random</button>
-        <button>Clear</button>
-
-
+        <div class="selec"> <label for="colorSelect">Choisissez une couleur :</label>
+            <input type="color" id="colorSelect" onchange="changeColor()">
+        </div>
+        <button class="btnClear" onclick="clearGrid()">Clear</button>
+        <button onclick="downloadDrawing()">Download Drawing</button>
     </div>
+
 </body>
 <script src="script.js"></script>
 
